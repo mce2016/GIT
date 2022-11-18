@@ -1,3 +1,5 @@
+PRACTICING THE ELIF STATEMENT
+
 userReply = input("Would you like to buy stamps, buy an envelope, or make a copy? (Enter stamps, envelope, or copy) ")
 if userReply == "stamps":
     print("We have many stamp designs to choose from.")
