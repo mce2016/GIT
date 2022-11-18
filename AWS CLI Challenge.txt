@@ -1,0 +1,17 @@
+Start lab
+Go to details - Copy all the details
+Donwload url
+Paste in browser to sign into AWS
+Then click EC2 to connect through SSH(putty)
+Copy Public IP
+Start Putty
+Verify Version
+python --version
+sudo yum install -y wget
+verify pip is installed pip --version
+ignore yellow markings
+AWS Acces KEy ID: Grab access key first and then secret key from
+the details tab
+output format json
+aws ec2 
+

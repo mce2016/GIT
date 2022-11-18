@@ -1,0 +1,40 @@
+http://54.189.153.10/cafe/
+
+Trail log bucket and folder
+monitoring3331
+monitoring3331/AWSLogs/803019555998
+
+
+aws s3 cp s3://monitoring3331/ . --recursive
+
+Log Files After using cd command to enter into each directory
+
+
+803019555998_CloudTrail_us-west-2_20220322T2020Z_G7PDfFVHe3BZQIkL.json.gz
+
+gunzip *.gz
+
+803019555998_CloudTrail_us-west-2_20220322T2020Z_G7PDfFVHe3BZQIkL.json
+
+cat 803019555998_CloudTrail_us-west-2_20220322T2020Z_G7PDfFVHe3BZQIkL.json | python -m json.tool
+To read logs in Python format
+
+ip=54.189.153.10
+
+for i in $(ls); do echo $i && cat $i | python -m json.tool | grep sourceIPAddress ; done
+- It creates a for loop that includes the names of the files in the current directory.
+During each iteration of the for loop, it echoes the file name and then prints the contents of the file in JSON format.
+Only the lines of JSON that contain the sourceIPAddress tag are printed.
+
+
+for i in $(ls); do echo $i && cat $i | python -m json.tool | grep eventName ; done
+-  It filters log entries for the eventName.
+
+
+region=$(curl http://169.254.169.254/latest/dynamic/instance-identity/document|grep region | cut -d '"' -f4)
+sgId=$(aws ec2 describe-instances --filters "Name=tag:Name,Values='Cafe Web Server'" --query 'Reservations[*].Instances[*].SecurityGroups[*].[GroupId]' --region $region --output text)
+echo $sgId
+sg-0e4e970d8f4b01817
+To find SG that is used by instance
+
+aws cloudtrail lookup-events --lookup-attributes AttributeKey=ResourceType,AttributeValue=AWS::EC2::sg-0e4e970d8f4b01817 --region $region --output text | grep $sgId
