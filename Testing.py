@@ -1,3 +1,5 @@
+MORE VARIABLE PRACTICE
+
 """
 x = "Python"
 y = "is"
