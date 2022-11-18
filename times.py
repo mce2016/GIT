@@ -1,3 +1,5 @@
+PRACTICE DISPLAYING THE CURRENT TIME
+
 from time import localtime
 from datetime import date, datetime, time, timedelta
 
