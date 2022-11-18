@@ -10,8 +10,7 @@ python --version
 sudo yum install -y wget
 verify pip is installed pip --version
 ignore yellow markings
-AWS Acces KEy ID: Grab access key first and then secret key from
-the details tab
+AWS Access Key ID: Grab access key first and then secret key from the details tab
 output format json
 aws ec2 
 
