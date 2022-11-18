@@ -1,3 +1,5 @@
+CLASS LAB - CONNECTING TO A CAFE DB TO GAIN CUSTOMER ORDER INFORMATION
+
 import boto3
 import pymysql
 import sys
